@@ -152,12 +152,16 @@ h2 {
 
 /**
   Button
-  -Jina
+  -Jina & Jay
 **/
 
 .align {
   display: flex;
   justify-content: center;
+  padding: 0rem 0.5rem;
+}
+
+.last-align {
   padding: 0.5rem;
 }
 

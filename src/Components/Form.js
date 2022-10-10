@@ -95,7 +95,7 @@ function Form(props) {
                     placeholder="Artist Name"
                 />
             </div>
-            <div className="align">
+            <div className="align last-align">
                 <input
                     type="text"
                     id="musicGenre"
