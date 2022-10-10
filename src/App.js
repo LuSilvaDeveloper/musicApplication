@@ -1,20 +1,39 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NavBar from "./Components/NavBar";
 import Menu from "./Components/Menu";
 import MainContent from "./Components/MainContent";
 import Form from "./Components/Form";
+import Footer from "./Components/Footer";
+import { nanoid } from "nanoid";
 
 function App() {
 
   const [menuFlag, setMenu] = useState(false);
+  const [songs, setSongs] = useState([]);
+
+  useEffect(() => {
+    const data = localStorage.getItem('listOfSongs');
+    if (data) {
+      setSongs(JSON.parse(data));
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('listOfSongs', JSON.stringify(songs))
+  }, [songs]);
+
+  function addSongs(songName) {
+    const newSong = { id: `#-${nanoid()}`, songName };
+    setSongs([...songs, newSong]);
+  }
 
   const menuOnClick = () => {
-      setMenu(!menuFlag);
-      if (menuFlag) {
-          document.getElementById('menu').style.transform = "translate(800px,0)";
-      }else {
-          document.getElementById('menu').style.transform = "translate(0,0)";
-      }
+    setMenu(!menuFlag);
+    if (menuFlag) {
+      document.getElementById('menu').style.transform = "translate(800px,0)";
+    } else {
+      document.getElementById('menu').style.transform = "translate(0,0)";
+    }
   };
 
 
@@ -23,8 +42,10 @@ function App() {
       <NavBar menuHandler={menuOnClick} />
       <Menu menuHandler={menuOnClick} />
       <MainContent />
-      <Form />
-
+      <Form
+        addSongs={addSongs}
+        setSongs={setSongs} />
+      <Footer songs={songs} />  
     </div>
   );
 }

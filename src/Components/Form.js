@@ -17,6 +17,10 @@ function Form(props) {
         setMusic("");
     }
 
+    function clearSongs(){
+        props.setSongs([]);
+        localStorage.clear();
+    };
 
 
     return(
@@ -43,7 +47,7 @@ function Form(props) {
             </div>
             <div>{"\n"}</div>
             <div className="align gap">
-                <button type="button" className="clear button">
+                <button type="button" className="clear button" onClick={clearSongs}>
                     Clear all music
                 </button>
             </div>
