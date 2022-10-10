@@ -180,13 +180,39 @@ h2 {
   font-weight: 400;
   font-size: 2rem;
   color:white;
+  cursor: pointer;
 }
 
 .add {
-  margin-bottom: 0rem;
-  
+  margin: 2rem 0rem;
 }
 
 .clear {
   background-color: #6478b5a3;
+}
+
+/**
+  Filter Buttons -Jay
+**/
+
+.filterContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  flex: 1 1;
+}
+
+.filterButtons {
+  font-size: 2rem;
+  padding: 0.5rem;
+  letter-spacing: 0.2rem;
+  border: none;
+  cursor: pointer;
+  background-color: white;
+}
+
+.filterButtons:hover {
+  background-color: #b8a7af;
+  color: white;
 }
