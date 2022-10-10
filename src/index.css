@@ -82,9 +82,12 @@ NavBar {
 
 main {
   width: 80%;
-  margin: 0 auto;
-  box-shadow: 1px 1px 1px 1px #888;
-  background-color: #E1BB80;
+  box-sizing:border-box;
+  margin: auto;
+  margin-bottom: 2rem; 
+  box-shadow: 1.5px 1.5px 1.5px 1.5px #886f7b;
+  background-color: #cd9fb4;
+  color: white;
 }
 
 h1 {
@@ -94,9 +97,9 @@ h1 {
   text-align: center;
 }
 
-IonIcon {
+.IonIcon {
   height: 1rem;
-  color: black;
+  color: white;
 }
 
 body {
@@ -111,4 +114,75 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/**
+  Form
+  -Jina
+
+**/
+
+.encouragement {
+  width: 80%;
+  padding: 1rem;
+  color: black;
+  
+}
+
+h2 {
+  font-family: Menlo;
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.4rem;
+  text-align: center;
+}
+/**
+  Enter
+  -Jina
+**/
+.enterMusic {
+  width: 50%;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  font-weight: 400;
+  font-size: 2rem;
+  border-radius: 2mm;
+  
+}
+
+/**
+  Button
+  -Jina
+**/
+
+.align {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.button {
+  width: 50%;
+  margin: auto;
+  margin-bottom: 2rem;
+  padding: 1rem; 
+  box-shadow: 1px 1px 1px 1px #888;
+  background-color: #97a7daa3;
+  border-color:#888;
+  border-radius: 2mm;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  font-weight: 400;
+  font-size: 2rem;
+  color:white;
+}
+
+.add {
+  margin-bottom: 0rem;
+  
+}
+
+.clear {
+  background-color: #6478b5a3;
 }
