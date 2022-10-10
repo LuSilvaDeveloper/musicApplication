@@ -2,6 +2,7 @@ import { useState } from "react";
 import NavBar from "./Components/NavBar";
 import Menu from "./Components/Menu";
 import MainContent from "./Components/MainContent";
+import Form from "./Components/Form";
 
 function App() {
 
@@ -19,9 +20,11 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar menuHandler={menuOnClick}></NavBar>
-      <Menu menuHandler={menuOnClick}></Menu>
-      <MainContent></MainContent>
+      <NavBar menuHandler={menuOnClick} />
+      <Menu menuHandler={menuOnClick} />
+      <MainContent />
+      <Form />
+
     </div>
   );
 }
