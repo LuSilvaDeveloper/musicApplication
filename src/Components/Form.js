@@ -22,7 +22,6 @@ function Form(props) {
         localStorage.clear();
     };
 
-
     return(
         <form onSubmit={handleSubmit}>
             <h2>
