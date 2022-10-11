@@ -216,3 +216,14 @@ h2 {
   background-color: #b8a7af;
   color: white;
 }
+
+/**
+  Input Validation
+**/
+
+.validations {
+  color: red;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 0.5rem;
+}
