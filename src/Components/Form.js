@@ -24,21 +24,59 @@ function Form(props) {
 
     function handleSubmit(e) {
         e.preventDefault();
-
-        setTemplate(!template);
+        
+        if (!template) {
+            setTemplate(!template);
+        }
 
         if (template) {
-            //Might be a good idea to add a input validation here in the future
-            const newMusic = {
-                songName: document.getElementById("musicName").value,
-                artist: document.getElementById("musicArtist").value,
-                genre: document.getElementById("musicGenre").value
+            if (formInputValidation()) {
+                const newMusic = {
+                    songName: document.getElementById("musicName").value,
+                    artist: document.getElementById("musicArtist").value,
+                    genre: document.getElementById("musicGenre").value
+                }
+                props.addSongs(newMusic);
+                setMusic("");
+                setArtist("");
+                setGenre("");
+                setTemplate(!template);
             }
-            props.addSongs(newMusic);
-            setMusic("");
-            setArtist("");
-            setGenre("");
         }
+
+    }
+
+    function formInputValidation() {
+        inputValidationReset();
+        const songInput = document.getElementById("musicName").value;
+        const artistInput = document.getElementById("musicArtist").value;
+        const genreInput = document.getElementById("musicGenre").value;
+        let flag = true;
+
+        /**
+         * Input validations.
+         * */
+
+        if (songInput == "") {
+            document.getElementById("songValidation").innerHTML = "Please Enter a Valid Song Name";
+            flag = false;
+        }
+        if (artistInput == "") {
+            document.getElementById("artistValidation").innerHTML = "Please Enter a Valid Artist Name";
+            flag = false;
+        }
+        if (genreInput == "") {
+            document.getElementById("genreValidation").innerHTML = "Please Enter a Valid Genre Name";
+            flag = false;
+        }
+        
+        return flag;
+    }
+
+    function inputValidationReset() {
+        document.getElementById("songValidation").innerHTML = "";
+        document.getElementById("artistValidation").innerHTML = "";
+        document.getElementById("genreValidation").innerHTML = "";
     }
 
     function clearSongs() {
@@ -83,6 +121,7 @@ function Form(props) {
                     placeholder="Song Name"
                 />
             </div>
+            <div id="songValidation" className='validations'></div>
             <div className="align">
                 <input
                     type="text"
@@ -95,6 +134,7 @@ function Form(props) {
                     placeholder="Artist Name"
                 />
             </div>
+            <div id="artistValidation" className='validations'></div>
             <div className="align last-align">
                 <input
                     type="text"
@@ -107,7 +147,7 @@ function Form(props) {
                     placeholder="Genre"
                 />
             </div>
-            <div>{"\n"}</div>
+            <div id="genreValidation" className='validations'></div>
             <div className="align gap">
                 <button type="submit" className="add button">
                     Add Song

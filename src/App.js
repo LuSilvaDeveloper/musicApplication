@@ -5,11 +5,13 @@ import MainContent from "./Components/MainContent";
 import Form from "./Components/Form";
 import Footer from "./Components/Footer";
 import { nanoid } from "nanoid";
+import FilterButton from "./Components/FilterButtons";
 
 function App() {
 
   const [menuFlag, setMenu] = useState(false);
   const [songs, setSongs] = useState([]);
+  const [filter, setFilter] = useState("songName");
 
   useEffect(() => {
     const data = localStorage.getItem('listOfSongs');
@@ -45,6 +47,7 @@ function App() {
       <Form
         addSongs={addSongs}
         setSongs={setSongs} />
+      <FilterButton setFilter={setFilter}/>
       <Footer songs={songs} />  
     </div>
   );
