@@ -5,12 +5,14 @@ import MainContent from "./Components/MainContent";
 import Form from "./Components/Form";
 import Footer from "./Components/Footer";
 import MusicList from "./Components/MusicList";
+import FilterButton from "./Components/FilterButtons";
 import {nanoid} from "nanoid";
 
 function App() {
 
-    const [menuFlag, setMenu] = useState(false);
-    const [songs, setSongs] = useState([]);
+  const [menuFlag, setMenu] = useState(false);
+  const [songs, setSongs] = useState([]);
+  const [filter, setFilter] = useState("songName");
 
     useEffect(() => {
         const data = localStorage.getItem('listOfSongs');
@@ -56,21 +58,21 @@ function App() {
         }
     };
 
-
-    return (
-        <div className="App">
-            <NavBar menuHandler={menuOnClick}/>
-            <Menu menuHandler={menuOnClick}/>
-            <MainContent/>
-            <Form
-                addSongs={addSongs}
-                setSongs={setSongs}/>
-            <Footer songs={songs}/>
-          <ul>
+  return (
+    <div className="App">
+      <NavBar menuHandler={menuOnClick} />
+      <Menu menuHandler={menuOnClick} />
+      <MainContent />
+      <Form
+        addSongs={addSongs}
+        setSongs={setSongs} />
+      <FilterButton setFilter={setFilter}/>
+      <ul>
             {songList}
-          </ul>
-        </div>
-    );
+      </ul>
+      <Footer songs={songs} />  
+    </div>
+  );
 }
 
 export default App;
