@@ -75,7 +75,7 @@ export default function MusicList(props) {
         <div className="add button songContainer">
             <div className="labelContainer">
                 <label htmlFor={props.id}>
-                    Song Name: {props.name}
+                    Song Name: {props.song}
                 </label>
                 <label htmlFor={props.id}>
                     Artist Name: {props.artist}

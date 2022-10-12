@@ -235,3 +235,7 @@ h2 {
 .songContainer {
   margin: 2rem auto;
 }
+
+.labelContainer label {
+  display: block;
+}
