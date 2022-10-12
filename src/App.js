@@ -25,10 +25,14 @@ function App() {
         localStorage.setItem('listOfSongs', JSON.stringify(songs))
     }, [songs]);
 
-    function addSongs(songName) {
-        const newSong = {id: `#-${nanoid()}`, songName};
+    function addSongs(songName, artist, genre) {
+        const newSong = {id: `#-${nanoid()}`, songName, artist, genre};
         setSongs([...songs, newSong]);
     }
+
+    /**
+     *  Might have to edit this function later in order to be able to edit artist and genre
+     * */
 
     function editSong(id, newSong) {
         const editedSongList = songs.map((song) => {
@@ -44,6 +48,8 @@ function App() {
       <MusicList
         id={song.id}
         name={song.name}
+        artist={song.artist}
+        genre={song.genre}
         key={song.id}
         editSong={editSong}
       />
