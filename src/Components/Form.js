@@ -33,7 +33,7 @@ function Form(props) {
         if (template) {
             if (formInputValidation()) {
                 const newMusic = {
-                    songName: document.getElementById("musicName").value,
+                    name: document.getElementById("musicName").value,
                     artist: document.getElementById("musicArtist").value,
                     genre: document.getElementById("musicGenre").value
                 }

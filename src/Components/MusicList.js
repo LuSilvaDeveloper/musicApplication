@@ -24,57 +24,64 @@ export default function MusicList(props) {
 
     }
 
-    const editingTemplate = (<form onSubmit={handleSubmit}>
-        <div className="align">
-            <input
-                type="text"
-                id={props.id}
-                className="enterMusic"
-                name="text"
-                autoComplete="off"
-                value={newMusic}
-                onChange={handleMusicChange}
-                placeholder="Song Name"
-            />
-        </div>
-        <div className="align">
-            <input
-                type="text"
-                id="musicArtist"
-                className="enterMusic"
-                name="text"
-                autoComplete="off"
-                value={newArtist}
-                onChange={handleArtistChange}
-                placeholder="Artist Name"
-            />
-        </div>
-        <div className="align">
-            <input
-                type="text"
-                id="musicGenre"
-                className="enterMusic"
-                name="text"
-                autoComplete="off"
-                value={newGenre}
-                onChange={handleGenreChange}
-                placeholder="Genre"
-            />
-        </div>
-        <div>{"\n"}</div>
-        <div className="align gap">
-            <button type="submit" className="add button">
-                Save
-            </button>
-        </div>
-        <div>{"\n"}</div>
-    </form>);
+    const editingTemplate = (
+        <form onSubmit={handleSubmit}>
+            <div className="align">
+                <input
+                    type="text"
+                    id={props.id}
+                    className="enterMusic"
+                    name="text"
+                    autoComplete="off"
+                    value={newMusic}
+                    onChange={handleMusicChange}
+                    placeholder="Song Name"
+                />
+            </div>
+            <div className="align">
+                <input
+                    type="text"
+                    id="musicArtist"
+                    className="enterMusic"
+                    name="text"
+                    autoComplete="off"
+                    value={newArtist}
+                    onChange={handleArtistChange}
+                    placeholder="Artist Name"
+                />
+            </div>
+            <div className="align">
+                <input
+                    type="text"
+                    id="musicGenre"
+                    className="enterMusic"
+                    name="text"
+                    autoComplete="off"
+                    value={newGenre}
+                    onChange={handleGenreChange}
+                    placeholder="Genre"
+                />
+            </div>
+            <div>{"\n"}</div>
+            <div className="align gap">
+                <button type="submit" className="add button">
+                    Save
+                </button>
+            </div>
+            <div>{"\n"}</div>
+        </form>);
 
     const viewTemplate = (
-        <div className="add button">
-            <div>
-                <label className="todo-label" htmlFor={props.id}>
-                    {props.name}
+        <div className="add button songContainer">
+            <div className="labelContainer">
+                <label htmlFor={props.id}>
+                    Song Name: {props.name}
+                </label>
+                <label htmlFor={props.id}>
+                    Artist Name: {props.artist}
+                </label>
+                <label htmlFor={props.id}>
+                    Genre Name: {props.genre}
                 </label>
             </div>
             <div>
