@@ -24,6 +24,7 @@ function Form(props) {
 
     function handleSubmit(e) {
         e.preventDefault();
+        setTemplate(!template);
         
         if (!template) {
             setTemplate(!template);
