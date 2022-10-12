@@ -24,20 +24,18 @@ function Form(props) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        setTemplate(!template);
-        
+
         if (!template) {
             setTemplate(!template);
         }
 
         if (template) {
             if (formInputValidation()) {
-                const newMusic = {
-                    name: document.getElementById("musicName").value,
-                    artist: document.getElementById("musicArtist").value,
-                    genre: document.getElementById("musicGenre").value
-                }
-                props.addSongs(newMusic);
+                const name = document.getElementById("musicName").value;
+                const artist = document.getElementById("musicArtist").value;
+                const genre = document.getElementById("musicGenre").value;
+
+                props.addSongs(name, artist, genre);
                 setMusic("");
                 setArtist("");
                 setGenre("");
@@ -58,19 +56,19 @@ function Form(props) {
          * Input validations.
          * */
 
-        if (songInput == "") {
+        if (songInput === "") {
             document.getElementById("songValidation").innerHTML = "Please Enter a Valid Song Name";
             flag = false;
         }
-        if (artistInput == "") {
+        if (artistInput === "") {
             document.getElementById("artistValidation").innerHTML = "Please Enter a Valid Artist Name";
             flag = false;
         }
-        if (genreInput == "") {
+        if (genreInput === "") {
             document.getElementById("genreValidation").innerHTML = "Please Enter a Valid Genre Name";
             flag = false;
         }
-        
+
         return flag;
     }
 

@@ -25,8 +25,8 @@ function App() {
         localStorage.setItem('listOfSongs', JSON.stringify(songs))
     }, [songs]);
 
-    function addSongs(songName, artist, genre) {
-        const newSong = {id: `#-${nanoid()}`, songName, artist, genre};
+    function addSongs(songName, artistName, genreName) {
+        const newSong = {id: `#-${nanoid()}`, song: songName, artist: artistName, genre: genreName};
         setSongs([...songs, newSong]);
     }
 
@@ -47,7 +47,7 @@ function App() {
     const songList = songs.map((song) => (
       <MusicList
         id={song.id}
-        name={song.name}
+        song={song.song}
         artist={song.artist}
         genre={song.genre}
         key={song.id}
