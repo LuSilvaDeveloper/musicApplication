@@ -239,3 +239,15 @@ h2 {
 .labelContainer label {
   display: block;
 }
+
+.favButton {
+  display: block;
+  width: 100%;
+}
+
+.favAdded {
+  display: block;
+  width: 100%;
+  color: black;
+  background-color: pink;
+}

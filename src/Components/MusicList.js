@@ -5,6 +5,7 @@ export default function MusicList(props) {
     const [newMusic, setNewMusic] = useState("");
     const [newArtist, setNewArtist] = useState("");
     const [newGenre, setNewGenre] = useState("");
+    const [isFavorite, setFavorite] = useState(false);
 
     function handleMusicChange(e) {
         setNewMusic(e.target.value);
@@ -40,6 +41,11 @@ export default function MusicList(props) {
             }
         }
         return true;
+    }
+
+    function onFavAdded(){
+        setFavorite(!isFavorite);
+        props.checkFavorite(props.id, isFavorite);
     }
 
     const editingTemplate = (
@@ -121,6 +127,9 @@ export default function MusicList(props) {
                 >
                     Delete <span className="visually-hidden">{props.name}</span>
                 </button>
+            </div>
+            <div>
+                <button type="button" className={isFavorite ? "button favAdded" : "button favButton"} onClick={onFavAdded}>Favorite</button>
             </div>
 
         </div>)
