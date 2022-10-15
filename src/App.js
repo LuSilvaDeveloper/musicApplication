@@ -34,10 +34,10 @@ function App() {
      *  Might have to edit this function later in order to be able to edit artist and genre
      * */
 
-    function editSong(id, newSong) {
+    function editSong(id, newSong, artist, genre) {
         const editedSongList = songs.map((song) => {
             if (id === song.id) {
-                return {...song, name: newSong}
+                return {...song, name: newSong, artist: artist, genre: genre}
             }
             return song
         });
