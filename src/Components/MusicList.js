@@ -20,8 +20,26 @@ export default function MusicList(props) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        props.editSong(props.id, newMusic);
+        if (editValidation()) {
+            props.editSong(props.id, newMusic, newArtist, newGenre);
+            setEditing(false);
+            setNewMusic("");
+            setNewArtist("");
+            setNewGenre("");
+        }
+    }
 
+    function editValidation() {
+        const inputs = document.getElementsByClassName('enterMusic');
+        for (let i = 1; i <= inputs.length; i++) {
+            if (inputs[i - 1].value === "") {
+                document.getElementById(`validation${i}`).innerHTML = "Incorrect Input!";
+                return false;
+            } else {
+                document.getElementById(`validation${i}`).innerHTML = "";
+            }
+        }
+        return true;
     }
 
     const editingTemplate = (
@@ -38,6 +56,7 @@ export default function MusicList(props) {
                     placeholder="Song Name"
                 />
             </div>
+            <div id="validation1" className="validations"></div>
             <div className="align">
                 <input
                     type="text"
@@ -50,6 +69,7 @@ export default function MusicList(props) {
                     placeholder="Artist Name"
                 />
             </div>
+            <div id="validation2" className="validations"></div>
             <div className="align">
                 <input
                     type="text"
@@ -62,6 +82,7 @@ export default function MusicList(props) {
                     placeholder="Genre"
                 />
             </div>
+            <div id="validation3" className="validations"></div>
             <div>{"\n"}</div>
             <div className="align gap">
                 <button type="submit" className="add button">
