@@ -79,11 +79,19 @@ function Form(props) {
     }
 
     function clearSongs() {
-        const willClear = window.confirm("Are you sure to clear all songs on your play list?");
-        if (willClear){
-            props.setSongs([]);
-            localStorage.clear();
-            alert("Successfully cleared!");
+
+        console.log(localStorage.getItem('listofSongs'));
+        if(localStorage.getItem('listofSongs') !== null) {
+            const willClear = window.confirm("Are you sure to clear all songs on your playlist?");
+            if (willClear){
+                props.setSongs([]);
+                localStorage.clear();
+                alert("Successfully cleared!");
+            }
+        } 
+
+        else{
+            alert("There is nothing in your playlist")
         }
     };
 
