@@ -78,7 +78,8 @@ function App() {
       <MainContent />
       <Form
         addSongs={addSongs}
-        setSongs={setSongs} />
+        setSongs={setSongs}
+        songs={songs} />
       <FilterButton setFilter={setFilter} />
       <ul>
         {songList}

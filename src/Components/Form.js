@@ -80,8 +80,9 @@ function Form(props) {
 
     function clearSongs() {
 
-        console.log(localStorage.getItem('listofSongs'));
-        if(localStorage.getItem('listofSongs') !== null) {
+        console.log(props.songs);
+
+        if(props.songs.length > 0) {
             const willClear = window.confirm("Are you sure to clear all songs on your playlist?");
             if (willClear){
                 props.setSongs([]);
@@ -93,6 +94,8 @@ function Form(props) {
         else{
             alert("There is nothing in your playlist")
         }
+
+        console.log(localStorage.getItem('listofSongs'));
     };
 
     const defaultTemplate = (
