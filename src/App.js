@@ -40,6 +40,11 @@ function App() {
     setSongs(editedSongList);
   }
 
+  function deleteSong(id) {
+    const filteredList = songs.filter((song) => song.id !== id)
+    setSongs(filteredList);
+  }
+
   function checkFavorite(id, isFavorite) {
     const editSongList = songs.map((song) => {
       if (id == song.id) {
@@ -58,6 +63,7 @@ function App() {
       genre={song.genre}
       key={song.id}
       editSong={editSong}
+      deleteSong={deleteSong}
       checkFavorite={checkFavorite}
     />
   ))

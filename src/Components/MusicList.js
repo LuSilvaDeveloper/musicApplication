@@ -128,7 +128,7 @@ export default function MusicList(props) {
                 <button
                     type="button"
                     className="add button"
-                    onClick={() => props.deleteTask(props.id)}
+                    onClick={() => props.deleteSong(props.id)}
                 >
                     Delete <span className="visually-hidden">{props.name}</span>
                 </button>
