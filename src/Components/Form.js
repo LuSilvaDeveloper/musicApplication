@@ -79,8 +79,12 @@ function Form(props) {
     }
 
     function clearSongs() {
-        props.setSongs([]);
-        localStorage.clear();
+        const willClear = window.confirm("Are you sure to clear all songs on your play list?");
+        if (willClear){
+            props.setSongs([]);
+            localStorage.clear();
+            alert("Successfully cleared!");
+        }
     };
 
     const defaultTemplate = (
@@ -150,6 +154,11 @@ function Form(props) {
             <div className="align gap">
                 <button type="submit" className="add button">
                     Add Song
+                </button>
+            </div>
+            <div className="align gap">
+                <button type="button" className="add button cancel" onClick = {() => setTemplate(false)}>
+                    Cancel
                 </button>
             </div>
             <div>{"\n"}</div>

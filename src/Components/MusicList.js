@@ -95,6 +95,11 @@ export default function MusicList(props) {
                     Save
                 </button>
             </div>
+            <div className="align gap">
+                <button type="button" className="add button cancel" onClick = {() => setEditing(false)}>
+                    Cancel
+                </button>
+            </div>
             <div>{"\n"}</div>
         </form>);
 
